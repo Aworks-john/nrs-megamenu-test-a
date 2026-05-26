@@ -1,0 +1,326 @@
+{
+  "Bathroom": {
+    "Bathroom Accessories": {
+      "Bath Boards": {},
+      "Bath Steps": {},
+      "Bathing Comfort": {},
+      "Grab Rails": {
+        "Outdoor Grab Rails": {},
+        "Plastic Grab Rails": {},
+        "Steel Grab Rails": {},
+        "Support Rails": {}
+      }
+    },
+    "Bath Lifts": {
+      "Bath Lift Accessories": {},
+      "Fixed Bath Lifts": {},
+      "Hoist": {},
+      "Inflatable Bath Lifts": {},
+      "Reclining Bath Lifts": {}
+    },
+    "Bath Lift Servicing": {
+      "Bath Lift Warranty": {}
+    },
+    "Anti Slip": {
+      "Bath/Shower Mats": {}
+    },
+    "Bathroom Seating": {
+      "Bathroom Benches & Chairs": {},
+      "Shower Chairs": {
+        "Mobile Shower Chairs": {},
+        "Static Shower Chairs": {},
+        "TIS Shower Chairs": {}
+      },
+      "Bathroom Stools": {
+        "Rotating Bathroom Stools": {},
+        "Static Bathroom Stools": {}
+      }
+    },
+    "Toilet Aids": {
+      "Commodes": {
+        "Chemical Commodes": {},
+        "Commode Pots/Liners": {},
+        "Folding Commodes": {},
+        "Mobile Commodes": {},
+        "Shower Commodes": {},
+        "Static Commodes": {},
+        "Urinals": {},
+        "Urinals & Bed Pans": {}
+      },
+      "Raised Toilet Seats": {},
+      "Toilet Surrounds": {
+        "Toilet Frames With Seats": {},
+        "Toilet Frames Without Seats": {}
+      },
+      "Toilet Lifts": {}
+    },
+    "Washing & Hygiene": {
+      "Washing Aids": {}
+    }
+  },
+  "Bedroom": {
+    "Mattresses": {
+      "Airflow Mattresses": {},
+      "Mattress Protection": {}
+    },
+    "Bedroom Accessories": {
+      "Bed Rails": {},
+      "Bedroom Comfort": {}
+    },
+    "Beds": {
+      "Care Home/Nursing Beds": {},
+      "Side Rails/End Panels/Accessories": {}
+    }
+  },
+  "Furniture": {
+    "Seating": {
+      "Rise & Recliner Chairs": {
+        "4 Motor Riser Recliner": {},
+        "Bespoke": {},
+        "Dual Motor Rise & Recliners": {},
+        "Single Motor Rise & Recliners": {}
+      },
+      "Fireside Chairs": {},
+      "High Dependency Chairs": {},
+      "High Seat Chairs": {},
+      "Sofas": {
+        "Sofa Accessories": {}
+      },
+      "Swivel Recliners": {}
+    },
+    "Furniture Accessories": {
+      "Chair Protection & Safety": {},
+      "Furniture Raisers": {}
+    },
+    "Footstools & Pouffes": {},
+    "Privacy Screens": {},
+    "Tables": {}
+  },
+  "Incontinence": {
+    "Bed & House Protection": {},
+    "Bed Pads": {
+      "Disposable Bed Pads": {}
+    },
+    "Single Use": {},
+    "Washable": {}
+  },
+  "Living Aids": {
+    "Sensory Aids": {
+      "Hearing Support": {
+        "Amplified Telephones": {},
+        "Hearing Aids": {}
+      },
+      "Visual Aids": {
+        "Magnifiers": {},
+        "SAD Therapy": {}
+      },
+      "Mats": {},
+      "Stimulation": {}
+    },
+    "Household Aids": {
+      "Anti-Slip": {},
+      "Clocks and Alarms": {},
+      "Half Steps": {},
+      "Lighting": {},
+      "Perching Stools": {},
+      "Reaching Aids": {},
+      "Safety": {},
+      "Stationery": {},
+      "Threshold Ramps": {}
+    },
+    "Kitchen Aids": {
+      "Appliances & Utensils": {},
+      "Beakers & Plates": {},
+      "Cutlery": {},
+      "Food Preparation": {},
+      "Trolleys": {}
+    },
+    "Exercise & Rehabilitation": {
+      "Arthritis Supports": {},
+      "Changing Tables": {},
+      "Exercise Bands": {},
+      "Gym Equipment": {},
+      "Hand Therapy": {},
+      "Medical Weighing Scales": {},
+      "Pedal Exercisers": {},
+      "Showering": {},
+      "Therapy Benches": {},
+      "Walking Aids": {}
+    },
+    "Out & About": {
+      "Blue Badge Holders": {},
+      "Car Travel Accessories": {},
+      "Garden Aids": {},
+      "Keys & Turners": {}
+    },
+    "Comfort Living": {
+      "Comfort Aids & Clothing": {},
+      "Cushions": {
+        "Comfort Cushions": {},
+        "Pressure Care Cushions": {}
+      },
+      "Foot Comfort": {},
+      "Heat Therapy": {}
+    },
+    "Dressing Aids": {},
+    "Pharmaceutical Aids": {
+      "Massage Therapy": {},
+      "Medical Devices": {},
+      "Natural Supplements": {},
+      "Pill Boxes/Cutters/Organisers": {}
+    },
+    "Hygiene Control": {
+      "Personal Care": {},
+      "PPE": {}
+    }
+  },
+  "Mobility Scooters": {
+    "All Terrain Scooters": {},
+    "Scooter Accessories": {
+      "Storage Solutions": {
+        "Bags & Holders": {},
+        "Covers": {}
+      },
+      "Ramps": {
+        "Channel Ramps": {},
+        "Folding Ramps": {},
+        "Threshold Ramps": {}
+      },
+      "Scooter Comfort": {},
+      "Scooter Safety & Protection": {},
+      "Wet Weather Wear": {}
+    },
+    "Cabin Scooters": {},
+    "Folding Scooters": {},
+    "Pavement Scooters": {},
+    "Road Scooters": {},
+    "Scooter Servicing": {
+      "Scooter Insurance": {},
+      "Scooter Warranty": {}
+    },
+    "Batteries & Chargers": {
+      "Chargers": {
+        "SLA Battery Chargers": {}
+      }
+    },
+    "Travel Scooters": {}
+  },
+  "Moving & Handling": {
+    "Emergency Evacuation & Lifting": {},
+    "Lifting Aids": {
+      "Hoists": {}
+    },
+    "Moving & Handling Servicing": {
+      "Moving & Handling Warranty": {}
+    },
+    "Safe Handling Accessories": {},
+    "Transfer Aids": {
+      "Slide Sheets": {},
+      "Slings & Harnesses": {},
+      "Transfer Assists": {},
+      "Transfer Seats": {}
+    }
+  },
+  "Paediatrics": {
+    "Eating & Drinking": {},
+    "Mobility": {},
+    "Seating & Posture": {},
+    "Supports": {}
+  },
+  "Powerchairs": {
+    "Fixed Base Powerchairs": {},
+    "Folding Powerchairs": {},
+    "Powerchair Accessories": {},
+    "Powerchair Servicing": {
+      "Powerchair Insurance": {},
+      "Powerchair Warranty": {}
+    }
+  },
+  "Pressure Area Care": {
+    "Cushions": {},
+    "Mattresses": {
+      "Dynamic Mattress": {}
+    },
+    "Foot & Elbow Care": {},
+    "Overlays": {}
+  },
+  "Service & Misc Items": {
+    "Miscellaneous Items": {},
+    "Service Items": {}
+  },
+  "Spare Parts": {
+    "Bathroom Aids": {},
+    "Mobility Scooter": {},
+    "Other Furniture": {},
+    "Paediatrics": {},
+    "Rise Recliners": {},
+    "Walking Aids": {},
+    "Wheelchairs": {}
+  },
+  "Specialist": {
+    "Bathroom Aids": {},
+    "Paediatrics": {
+      "Bathroom Aids": {},
+      "Bedroom Aids": {},
+      "Seating & Posture": {},
+      "Walking Aids": {}
+    },
+    "Bedroom Accessories": {},
+    "Furniture": {
+      "Seating": {}
+    },
+    "Bedroom": {
+      "Mattresses": {}
+    },
+    "Misc": {
+      "Other": {}
+    },
+    "Moving & Handling": {},
+    "Powerchairs": {},
+    "Pressure Care": {},
+    "Walking Aids": {},
+    "Wheelchairs": {}
+  },
+  "Walking Aids": {
+    "Rollators": {
+      "All Terrain": {},
+      "Bariatric": {},
+      "Forearm": {},
+      "Hybrid Rollators": {},
+      "Standard Rollator": {}
+    },
+    "Crutches & Walking Sticks": {
+      "Crutches": {},
+      "Walking Sticks": {}
+    },
+    "Walking Frames": {
+      "Fixed Walking Frames": {},
+      "Folding Walking Frames": {}
+    },
+    "Tri-Walkers": {
+      "Standard Tri-Walkers": {},
+      "Tri-Walkers With Seats": {}
+    },
+    "Walking Aid Accessories": {},
+    "Walking Aids Servicing": {
+      "Walking Aid Insurance": {}
+    }
+  },
+  "Wheelchairs": {
+    "Attendant Wheelchairs": {},
+    "Wheelchair Accessories": {
+      "Ramps": {},
+      "Wheelchair Bags & Gloves": {},
+      "Wheelchair Cushions": {},
+      "Wheelchair Powerpacks": {},
+      "Wheelchair Safety": {},
+      "Wheelchair Wet Weather": {}
+    },
+    "Self-Propelled Wheelchairs": {},
+    "Specialist": {},
+    "Travel Wheelchairs": {},
+    "Wheelchair Servicing": {
+      "Wheelchair Insurance": {}
+    }
+  }
+}

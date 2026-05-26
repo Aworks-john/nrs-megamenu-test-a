@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>NRS Navigation — Mega Menu Concepts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  @font-face {
+    font-family: 'Goldplay';
+    src: url('fonts/Goldplay-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Goldplay';
+    src: url('fonts/Goldplay-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Goldplay';
+    src: url('fonts/Goldplay-SemiBold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  /* Goldplay only ships Regular/Medium/SemiBold here; map 700/800 to SemiBold so bold tokens still resolve. */
+  @font-face {
+    font-family: 'Goldplay';
+    src: url('fonts/Goldplay-SemiBold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Goldplay';
+    src: url('fonts/Goldplay-SemiBold.otf') format('opentype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  html, body { margin: 0; padding: 0; height: 100%; font-family: 'Goldplay', system-ui, sans-serif; background: #f4f1ec; }
+  *, *::before, *::after { box-sizing: border-box; }
+
+  /* MegaMenu fade-in for tier-3 column */
+  @keyframes nrsFadeSlide {
+    from { opacity: 0; transform: translateY(2px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Input placeholder colour */
+  input::placeholder { color: #93a1ad; }
+
+  /* Scrollbar styling inside the menu columns */
+  .mega ::-webkit-scrollbar { width: 8px; }
+  .mega ::-webkit-scrollbar-thumb { background: #d8e0e6; border-radius: 8px; }
+</style>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script src="categories.js"></script>
+<script type="text/babel" src="design-canvas.jsx"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="primitives.jsx"></script>
+<script type="text/babel" src="mega-menu.jsx"></script>
+<script type="text/babel" src="mega-menu-horizontal.jsx"></script>
+<script type="text/babel" src="variants.jsx"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel">
+const { useState } = React;
+
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "accentA": "#62ffef",
+  "showFeatured": true
+}/*EDITMODE-END*/;
+
+function App() {
+  const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+
+  return (
+    <React.Fragment>
+      <DesignCanvas>
+        <DCSection
+          id="megamenu"
+          title="NRS Mega Menu — Variant A"
+          subtitle="Dark teal nav · Products → mega menu · two dropdown layouts"
+        >
+          <DCArtboard id="varA" label="A · Tiered hover  (rail → L2 → L3)" width={1480} height={920}>
+            <div data-screen-label="A · Tiered hover" style={{ width: "100%", height: "100%" }}>
+              <HeaderVariantA accent={t.accentA} showFeatured={t.showFeatured} menuLayout="tiered" />
+            </div>
+          </DCArtboard>
+
+          <DCArtboard id="varA2" label="A · Horizontal  (all sub-cats visible)" width={1480} height={920}>
+            <div data-screen-label="A · Horizontal" style={{ width: "100%", height: "100%" }}>
+              <HeaderVariantA accent={t.accentA} showFeatured={t.showFeatured} menuLayout="horizontal" />
+            </div>
+          </DCArtboard>
+        </DCSection>
+
+        <DCSection
+          id="notes"
+          title="Design notes"
+          subtitle="What's happening, what to look for"
+        >
+          <DCArtboard id="readme" label="Read me" width={640} height={920}>
+            <ReadMe />
+          </DCArtboard>
+        </DCSection>
+      </DesignCanvas>
+
+      <TweaksPanel title="Tweaks">
+        <TweakSection label="Brand accent">
+          <TweakColor
+            label="Accent / CTA colour"
+            value={t.accentA}
+            onChange={(v) => setTweak('accentA', v)}
+            options={["#62ffef", "#3aa18a", "#0c5fa4", "#0e7d7d", "#1a4d6b", "#c9ff4a"]}
+          />
+        </TweakSection>
+        <TweakSection label="Mega menu">
+          <TweakToggle
+            label="Show featured promo column"
+            value={t.showFeatured}
+            onChange={(v) => setTweak('showFeatured', v)}
+          />
+        </TweakSection>
+        <TweakSection label="Note">
+          <div style={{ fontSize: 12, color: "#5b6b7a", lineHeight: 1.5 }}>
+            Logo, fonts and accent colours are <strong>placeholders</strong>.
+            Drop in the real NRS brand tokens to finish the look.
+          </div>
+        </TweakSection>
+      </TweaksPanel>
+    </React.Fragment>
+  );
+}
+
+function ReadMe() {
+  const S = ({ children, ...p }) => <p style={{ margin: "0 0 10px", fontSize: 13.5, lineHeight: 1.55, color: "#3a4a5a" }} {...p}>{children}</p>;
+  const H = ({ children }) => <h4 style={{ margin: "20px 0 8px", fontSize: 13, fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: "#0d1f2f" }}>{children}</h4>;
+  return (
+    <div style={{
+      width: "100%", height: "100%", background: "#fff",
+      padding: "32px 36px", fontFamily: "'Goldplay', sans-serif",
+      borderRadius: 0, overflow: "auto",
+    }}>
+      <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#9aa8b6" }}>
+        Concept brief — v2
+      </div>
+      <h2 style={{ margin: "6px 0 14px", fontSize: 22, fontWeight: 700, color: "#0d1f2f", letterSpacing: "-0.01em" }}>
+        Dark teal navigation with mega-menu Products tab
+      </h2>
+      <S>
+        Single dark <code style={{ background: "#eef2f5", padding: "1px 6px", borderRadius: 4 }}>#183e4b</code>
+        nav strip carries the light NRS logo, six top-level links, search and account.
+        Hovering <strong>Products</strong> opens the mega menu beneath, anchored to that tab.
+      </S>
+
+      <H>Two dropdown layouts</H>
+      <S>
+        <strong>Tiered hover</strong> — left rail · L2 column · L3 column (slides in when an L2 has children) ·
+        featured promo fills the right when no L3 to show. Better for deep browsing — keeps the panel narrow.
+      </S>
+      <S>
+        <strong>Horizontal</strong> — left rail · multi-column grid showing ALL L2 sub-categories at once with their
+        L3 children listed beneath · featured promo fixed on the right. Better for scannability — denser, but every
+        sub-cat is visible without further hovering.
+      </S>
+
+      <H>Top-level nav</H>
+      <S>· <strong>Products</strong> — mega menu (15 categories)<br/>
+        · Our Services<br/>
+        · Find a retailer<br/>
+        · News<br/>
+        · About Us<br/>
+        · Contact Us</S>
+
+      <H>What's still on the placeholder list</H>
+      <S>· Final accent / CTA colour (currently a calm blue — tweakable in the panel)<br/>
+        · OT-led copy for the featured promo blocks<br/>
+        · Real product imagery to replace the striped placeholders</S>
+    </div>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+</script>
+</body>
+</html>
