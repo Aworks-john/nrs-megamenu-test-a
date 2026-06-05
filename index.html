@@ -2,21 +2,24 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>NRS Mega Menu — A · Horizontal</title>
+<title>NRS Mega Menu — 2605-28</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
 <style>
-  @font-face { font-family: 'Goldplay'; src: url('fonts/Goldplay-Regular.otf')   format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
-  @font-face { font-family: 'Goldplay'; src: url('fonts/Goldplay-Medium.otf')    format('opentype'); font-weight: 500; font-style: normal; font-display: swap; }
-  @font-face { font-family: 'Goldplay'; src: url('fonts/Goldplay-SemiBold.otf')  format('opentype'); font-weight: 600; font-style: normal; font-display: swap; }
-  @font-face { font-family: 'Goldplay'; src: url('fonts/Goldplay-SemiBold.otf')  format('opentype'); font-weight: 700; font-style: normal; font-display: swap; }
-  @font-face { font-family: 'Goldplay'; src: url('fonts/Goldplay-SemiBold.otf')  format('opentype'); font-weight: 800; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Goldplay'; src: url('fonts/Goldplay-Regular.otf')  format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Goldplay'; src: url('fonts/Goldplay-Medium.otf')   format('opentype'); font-weight: 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Goldplay'; src: url('fonts/Goldplay-SemiBold.otf') format('opentype'); font-weight: 600; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Goldplay'; src: url('fonts/Goldplay-SemiBold.otf') format('opentype'); font-weight: 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Goldplay'; src: url('fonts/Goldplay-SemiBold.otf') format('opentype'); font-weight: 800; font-style: normal; font-display: swap; }
 
-  html, body { margin: 0; padding: 0; height: 100%; font-family: 'Goldplay', system-ui, sans-serif; background: #f4f1ec; }
+  html, body {
+    margin: 0; padding: 0; min-height: 100%;
+    font-family: 'Goldplay', system-ui, sans-serif;
+    background: #f4f1ec;
+  }
   *, *::before, *::after { box-sizing: border-box; }
-
   @keyframes nrsFadeSlide { from { opacity: 0; transform: translateY(2px); } to { opacity: 1; transform: translateY(0); } }
   input::placeholder { color: #93a1ad; }
   .mega ::-webkit-scrollbar { width: 8px; }
@@ -28,8 +31,6 @@
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 
 <script src="categories.js"></script>
-<script type="text/babel" src="design-canvas.jsx"></script>
-<script type="text/babel" src="tweaks-panel.jsx"></script>
 <script type="text/babel" src="primitives.jsx"></script>
 <script type="text/babel" src="mega-menu.jsx"></script>
 <script type="text/babel" src="mega-menu-horizontal.jsx"></script>
@@ -39,79 +40,16 @@
 <body>
 <div id="root"></div>
 
-<template id="__bundler_thumbnail">
-  <svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg">
-    <rect width="400" height="280" fill="#183e4b"/>
-    <rect x="60" y="120" width="280" height="14" rx="3" fill="#62ffef"/>
-    <rect x="60" y="146" width="200" height="14" rx="3" fill="rgba(255,255,255,0.35)"/>
-    <rect x="60" y="172" width="240" height="14" rx="3" fill="rgba(255,255,255,0.35)"/>
-  </svg>
-</template>
-
 <script type="text/babel">
-const { useState } = React;
-
-const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "accentA": "#62ffef",
-  "showFeatured": true,
-  "brandLogos": true
-}/*EDITMODE-END*/;
-
-function App() {
-  const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
-
-  return (
-    <React.Fragment>
-      <DesignCanvas>
-        <DCSection
-          id="megamenu-horizontal"
-          title="NRS Mega Menu — WIP"
-          subtitle={"\n"}
-        >
-          <DCArtboard id="varA2" label="A · Horizontal — Brands with logos" width={1480} height={920}>
-            <div data-screen-label="A · Horizontal (logos)" style={{ width: "100%", height: "100%" }}>
-              <HeaderVariantA accent={t.accentA} showFeatured={t.showFeatured} menuLayout="horizontal" useLogos={t.brandLogos} />
-            </div>
-          </DCArtboard>
-
-          <DCArtboard id="varA2text" label="A · Horizontal — Brands all text" width={1480} height={920}>
-            <div data-screen-label="A · Horizontal (text)" style={{ width: "100%", height: "100%" }}>
-              <HeaderVariantA accent={t.accentA} showFeatured={t.showFeatured} menuLayout="horizontal" useLogos={false} />
-            </div>
-          </DCArtboard>
-        </DCSection>
-      </DesignCanvas>
-
-      <TweaksPanel title="Tweaks">
-        <TweakSection label="Brand accent">
-          <TweakColor
-            label="Accent / CTA colour"
-            value={t.accentA}
-            onChange={(v) => setTweak('accentA', v)}
-            options={["#62ffef", "#3aa18a", "#0c5fa4", "#0e7d7d", "#1a4d6b", "#c9ff4a"]}
-          />
-        </TweakSection>
-        <TweakSection label="Mega menu">
-          <TweakToggle
-            label="Show featured promo column"
-            value={t.showFeatured}
-            onChange={(v) => setTweak('showFeatured', v)}
-          />
-        </TweakSection>
-        <TweakSection label="Our Brands menu">
-          <TweakToggle
-            label="Use brand logos (vs. text)"
-            value={t.brandLogos}
-            onChange={(v) => setTweak('brandLogos', v)}
-          />
-        </TweakSection>
-      </TweaksPanel>
-    </React.Fragment>
-  );
-}
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
+root.render(
+  <HeaderVariantA
+    accent="#62ffef"
+    showFeatured={true}
+    menuLayout="horizontal"
+    useLogos={true}
+  />
+);
 </script>
 </body>
 </html>

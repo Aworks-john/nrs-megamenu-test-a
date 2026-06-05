@@ -1,39 +1,36 @@
-# NRS Mega Menu — Deploy Package
+# NRS Mega Menu — 2605-28
 
-Static deployment of the NRS Horizontal Mega Menu design canvas.
+Standalone deployment of the NRS horizontal mega menu (brands with logos).
 
 ## Deploy to GitHub Pages
 
 1. Push the contents of this folder to a GitHub repo (so `index.html` is at the root).
 2. Go to **Settings → Pages → Build and deployment → Source**.
-3. Choose **Deploy from a branch**, select your branch and root `/`.
+3. Choose **Deploy from a branch**, select your branch and `/` (root).
 4. Save — live at `https://<user>.github.io/<repo>/` within a minute.
+
+## Interactions
+
+- Hover **Products** — opens the horizontal mega menu (all sub-categories visible)
+- Hover **Our Brands** — opens the brands dropdown (grey logos → teal on hover)
+- Hover **Find us** — opens the compact two-option dropdown
 
 ## File structure
 
 ```
-index.html                  ← Entry point (design canvas)
-categories.js               ← Product category data
-design-canvas.jsx           ← Design canvas shell
-tweaks-panel.jsx            ← Tweaks panel
-primitives.jsx              ← Shared icons & UI primitives
-mega-menu.jsx               ← Tiered mega menu
-mega-menu-horizontal.jsx    ← Horizontal (all sub-cats) mega menu
-mega-menu-brands.jsx        ← Our Brands dropdown + NavDropdown
-variants.jsx                ← Header variants A & B + nav config
+index.html              ← Entry point
+categories.js           ← Product category data
+primitives.jsx          ← Icons & UI primitives
+mega-menu.jsx           ← Tiered mega menu (used by Products)
+mega-menu-horizontal.jsx← Horizontal mega menu
+mega-menu-brands.jsx    ← Our Brands dropdown + Find us NavDropdown
+variants.jsx            ← Header layout + nav config
 assets/
-  nrs-logo.png              ← NRS logo (white, for dark nav)
+  nrs-logo.png
   brands/
-    *-grey.svg              ← Grey wordmark logos (CSS-masked in grid)
-    *-thumb.svg             ← Brand thumbnail images (promo cards)
-    *.svg                   ← Colour brand logos
+    *-grey.svg          ← CSS-masked wordmarks (grid, grey/teal)
+    *-thumb.svg         ← Brand thumbnail images (promo cards)
+    *.svg               ← Colour brand logos
 fonts/
-  Goldplay-*.otf            ← Brand typeface
+  Goldplay-*.otf
 ```
-
-## Notes
-
-- React + Babel are loaded from CDN — no build step needed.
-- CSS mask renders the grey/teal brand logos in the grid; some screenshot tools show these as solid blocks (a renderer limitation — they display correctly in-browser).
-- Hover **Products** or **Our Brands** in the nav to open the respective mega-menu.
-- The Tweaks panel (bottom-right) lets you swap accent colour and toggle brand logos on/off.
