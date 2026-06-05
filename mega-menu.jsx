@@ -188,20 +188,6 @@ function FeaturedPromo({ theme, featured, catName }) {
   if (!featured) return null;
   return (
     <div style={{ padding: 22, display: "flex", flexDirection: "column", height: "100%" }}>
-      <div style={{
-        display: "inline-flex", alignItems: "center", gap: 6,
-        alignSelf: "flex-start",
-        padding: "4px 10px", borderRadius: 999,
-        background: theme.featuredTagBg, color: theme.featuredTagText,
-        fontSize: 11, fontWeight: 600, letterSpacing: "0.04em",
-        marginBottom: 14,
-      }}>
-        <span style={{
-          width: 6, height: 6, borderRadius: 999, background: theme.accent,
-        }} />
-        {featured.tag}
-      </div>
-
       <ImagePlaceholder
         label={featured.placeholder}
         tone={theme.imageTone}
@@ -210,10 +196,6 @@ function FeaturedPromo({ theme, featured, catName }) {
       />
 
       <div style={{ marginTop: 14 }}>
-        <div style={{
-          fontSize: 11, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase",
-          color: theme.eyebrow, marginBottom: 6,
-        }}>{catName}</div>
         <h3 style={{
           fontSize: 18, fontWeight: 700, margin: 0,
           color: theme.featuredTitle, lineHeight: 1.2,

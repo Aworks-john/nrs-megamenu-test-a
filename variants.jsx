@@ -45,23 +45,27 @@ const NAV_HOVER = "#22525f";
 const NAV_ACTIVE = "#0f2c36";
 
 const NAV_LINKS = [
-  { label: "Products",       key: "products",   hasMenu: true },
-  { label: "Our Services",   key: "services" },
-  { label: "Find a retailer",key: "retailer" },
-  { label: "News",           key: "news" },
-  { label: "About Us",       key: "about" },
-  { label: "Contact Us",     key: "contact" },
+  { label: "Products",     key: "products",   menu: "products" },
+  { label: "Our Brands",   key: "brands",     menu: "brands" },
+  { label: "Our Services", key: "services" },
+  { label: "Find us",      key: "findus",     menu: "findus", items: [
+    { label: "Find a retailer",        sub: "Browse stores that stock us" },
+    { label: "Find a local authority", sub: "For support, repairs, or returns in your area." },
+  ] },
+  { label: "News",         key: "news" },
+  { label: "About Us",     key: "about" },
+  { label: "Contact Us",   key: "contact" },
 ];
 
-function HeaderVariantA({ accent, showFeatured, menuLayout = "tiered" }) {
-  const [open, setOpen] = useState(true); // Pre-open for the design canvas demo
+function HeaderVariantA({ accent, showFeatured, menuLayout = "tiered", useLogos = false }) {
+  const [openMenu, setOpenMenu] = useState("products"); // "products" | "brands" | null — pre-open for the canvas demo
   const [hoverKey, setHoverKey] = useState(null);
   const theme = buildTheme({
     accent,
     accentDark: shade(accent, -0.45),
     variant: "A",
   });
-  theme.menuLeft = 0; // anchored to the "Products" button
+  theme.menuLeft = 36; // align the dropdown under the nav links (row padding)
 
   return (
     <div style={{
@@ -140,18 +144,15 @@ function HeaderVariantA({ accent, showFeatured, menuLayout = "tiered" }) {
       }}>
         <nav style={{ display: "flex", alignItems: "stretch", gap: 8 }}>
           {NAV_LINKS.map((item) => {
-            const isProducts = item.hasMenu;
-            const active = isProducts ? open : hoverKey === item.key;
+            const hasMenu = !!item.menu;
+            const active = hasMenu ? openMenu === item.menu : hoverKey === item.key;
             return (
               <div
                 key={item.key}
-                style={{ position: "relative", display: "flex" }}
+                style={{ display: "flex", position: item.menu === "findus" ? "relative" : undefined }}
                 onMouseEnter={() => {
-                  if (isProducts) setOpen(true);
-                  else { setOpen(false); setHoverKey(item.key); }
-                }}
-                onMouseLeave={() => {
-                  if (!isProducts) setHoverKey(null);
+                  if (hasMenu) { setOpenMenu(item.menu); setHoverKey(null); }
+                  else { setOpenMenu(null); setHoverKey(item.key); }
                 }}
               >
                 <a
@@ -176,33 +177,47 @@ function HeaderVariantA({ accent, showFeatured, menuLayout = "tiered" }) {
                   }}
                 >
                   {item.label}
-                  {item.hasMenu && (
-                    <Icon.Chevron size={11} stroke="#ffffff" dir={open ? "down" : "right"} />
+                  {hasMenu && (
+                    <Icon.Chevron size={11} stroke="#ffffff" dir={active ? "down" : "right"} />
                   )}
                 </a>
 
-                {/* Mega menu anchored to the Products tab */}
-                {isProducts && (
-                  menuLayout === "horizontal" ? (
-                    <MegaMenuHorizontal
-                      open={open}
-                      theme={theme}
-                      showFeatured={showFeatured}
-                      onClose={() => setOpen(false)}
-                    />
-                  ) : (
-                    <MegaMenu
-                      open={open}
-                      theme={theme}
-                      showFeatured={showFeatured}
-                      onClose={() => setOpen(false)}
-                    />
-                  )
+                {/* Compact dropdown anchored under this item */}
+                {item.menu === "findus" && (
+                  <NavDropdown
+                    open={openMenu === "findus"}
+                    theme={theme}
+                    items={item.items}
+                    onClose={() => setOpenMenu(null)}
+                  />
                 )}
               </div>
             );
           })}
         </nav>
+
+        {/* Mega menus — anchored to the nav row, aligned under the links */}
+        {menuLayout === "horizontal" ? (
+          <MegaMenuHorizontal
+            open={openMenu === "products"}
+            theme={theme}
+            showFeatured={showFeatured}
+            onClose={() => setOpenMenu(null)}
+          />
+        ) : (
+          <MegaMenu
+            open={openMenu === "products"}
+            theme={theme}
+            showFeatured={showFeatured}
+            onClose={() => setOpenMenu(null)}
+          />
+        )}
+        <MegaMenuBrands
+          open={openMenu === "brands"}
+          theme={theme}
+          useLogos={useLogos}
+          onClose={() => setOpenMenu(null)}
+        />
       </div>
 
       {/* Stripped-down "page" beneath header so the menu has visual context */}
